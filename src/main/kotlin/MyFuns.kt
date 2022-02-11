@@ -1,14 +1,29 @@
 package test
 
-public class MyFuns constructor(name:String = "default") {
-    val name = name
+//public class MyFuns constructor(name:String = "default") {
+//    val name = name
+
+// 인자에 클래스 변수를 생성하여 전달 가능
+open class MyFuns public constructor(val name:String = "default") {
+    // 프로퍼티 오버라이딩
+    open var oneHun:Int = 100
 
     init {
         println("$name MyFuns init!")
     }
 
+    // 보조 생성자
+    constructor(intVal : Int) : this("$intVal"){
+        // 추가 처리 가능
+    }
+
     fun getName() {
         println("$name")
+    }
+
+    // 오버라이딩 필요시 open
+    open fun overRidingMethodTest(value1:Int, value2:Int) :Int{
+        return value1+value2
     }
 
     fun stringEdit(s1: String, s2: String) {
