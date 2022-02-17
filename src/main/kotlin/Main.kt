@@ -6,14 +6,23 @@ fun main(args: Array<String>) {
     // Try adding program arguments at Run/Debug configuration
     println("Program arguments: ${args.joinToString()}")
 
-    val testThread1 = Thread(MyRunnable())
-    val testThread2 = Thread( object : Runnable{
-        override fun run() {
-            println("good?")
-        }
-    })
-    testThread1.run()
-    testThread2.run()
+//    var a : String? = null
+//    var b = a?.length
+//    println(b)
+//    if(b == null){ a = "hello" }
+//    var c = a?.length ?: 1
+//    println(c)
+
+    val list = listOf("1234", "abcd", "가나다라", "몰라", "TTTTT")
+    val listSeq = list.asSequence();
+    val result = listSeq.filter {
+        it.length > 3
+    }.map{
+        it.length
+    }.toList()
+
+    for (each in result)
+        print(each)
 
     // 클래스 사용 시 초기화 선택적으로 가능
 //    var dataclass1 = DataClassTest()
